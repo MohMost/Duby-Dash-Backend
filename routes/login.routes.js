@@ -1,9 +1,10 @@
 import express from "express";
 const loginRouter = express.Router();
-
-loginRouter.post("/login", (req, res) => {
+import UserModel from "../models/User.js";
+loginRouter.post("/login", async (req, res) => {
   const { userName, password } = req.body;
-  res.json({ requestData: { userName, password } });
+  const userDoc = await UserModel.findOne({ userName });
+  console.log(userDoc);
 });
 
 export default loginRouter;

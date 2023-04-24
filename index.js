@@ -5,17 +5,14 @@ import userRouter from "./routes/user.routes.js";
 import blogRouter from "./routes/blog.routes.js";
 import loginRouter from "./routes/login.routes.js";
 import signupRouter from "./routes/signup.routes.js";
-import dotenv from "dotenv";
-
+import { config } from "dotenv";
+config();
 const app = express();
 
 app.use(express.json());
 app.use(cors({ credentials: true }));
 
-mongoose.connect(
-  "mongodb+srv://mohlost:Sexetoy69@e-commerce.ezrdcvt.mongodb.net/E-commerce?retryWrites=true&w=majority"
-  //mongodb+srv://mohlost:Sexetoy69@e-commerce.ezrdcvt.mongodb.net/E-commerce?retryWrites=true&w=majority
-);
+mongoose.connect(process.env.DATABASE_URL);
 app.use(userRouter);
 app.use(blogRouter);
 app.use(loginRouter);
