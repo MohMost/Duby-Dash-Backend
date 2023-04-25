@@ -27,7 +27,8 @@ const userSchemas = new mongoose.Schema(
     profilePicture: {
       type: String,
       required: false,
-      default: "../assets/default_profile.svg",
+      default:
+        "https://firebasestorage.googleapis.com/v0/b/pokemoh-ad0fa.appspot.com/o/icons%2Fdefault_profile.svg?alt=media&token=8fc6a686-be65-4cf8-908c-344fc033e0fa",
     },
   },
   {
